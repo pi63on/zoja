@@ -1,15 +1,15 @@
-function onCircleOver(){
-    let myImage = document.getElementById("testImage");
-    myImage.style.opacity = 1;    
-}
-function onCircleOut(){
-    let myImage = document.getElementById("testImage");
-    myImage.style.opacity = 0;    
-}
+// function onCircleOver(){
+//     let myImage = document.getElementById("testImage");
+//     myImage.style.opacity = 1;    
+// }
+// function onCircleOut(){
+//     let myImage = document.getElementById("testImage");
+//     myImage.style.opacity = 0;    
+// }
 
 // initialize map
-let map = L.map('map', {
-    center: [48.14364, 17.113266],
+let myMap = L.map('map', {
+    center: [48.185388, 17.133865],
     zoom: 13,
     minZoom: 13,
     maxZoom: 16,
@@ -27,7 +27,7 @@ let Stadia_StamenTonerLite = L.tileLayer('https://tiles.stadiamaps.com/tiles/sta
     maxBounds: bounds,
 	attribution: '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://www.stamen.com/" target="_blank">Stamen Design</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
 	ext: 'png'
-}).addTo(map);
+}).addTo(myMap);
 
 // let marker = L.marker([51.5, -0.09]).addTo(map);
 // cvernovka point
@@ -36,10 +36,12 @@ let circle = L.circle([48.185388, 17.133865], {
     fillColor: 'rgb(255, 196, 0)',
     fillOpacity: 0.5,
     radius: 50
-}).addTo(map);
+}).addTo(myMap);
 
-circle.on("mouseover", onCircleOver);
-circle.on("mouseout", onCircleOut);
+//circle event handlinn
+// circle.on("mouseover", onCircleOver);
+// circle.on("mouseout", onCircleOut);
+
 
 
 // path object
@@ -63,13 +65,13 @@ circle.on("mouseout", onCircleOut);
 //     .openOn(map);
 
 // onclick show latlong
-// let popup = L.popup();
+let popup = L.popup();
 
-// function onMapClick(e) {
-//     popup
-//         .setLatLng(e.latlng)
-//         .setContent("You clicked the map at " + e.latlng.toString())
-//         .openOn(map);
-// }
+function onMapClick(e) {
+    popup
+        .setLatLng(e.latlng)
+        .setContent("You clicked the map at " + e.latlng.toString())
+        .openOn(myMap);
+}
 
-// map.on('click', onMapClick);
+myMap.on('click', onMapClick);

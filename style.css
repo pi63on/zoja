@@ -16,7 +16,7 @@ canvas {
   width: 1000px;
  }
 #testImage {
-  opacity: 0;
+  opacity: 1;
   /* width: 100px; */
   height: 600px;
 }
