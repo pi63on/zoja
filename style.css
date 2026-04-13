@@ -1,0 +1,22 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+canvas {
+  display: block;
+}
+#container {
+  margin-top: 10vh;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#map { 
+  height: 600px;
+  width: 1000px;
+ }
+#testImage {
+  opacity: 0;
+  /* width: 100px; */
+  height: 600px;
+}
